@@ -52,6 +52,12 @@ body {
     position: absolute;
 }
 
+#fishBar {
+    width: 100px;
+    height:100px;
+    position: absolute;
+}
+
 #riverImage {
     position: fixed;
     width: 100%;
