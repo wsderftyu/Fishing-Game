@@ -1,0 +1,68 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#titleDisplay {
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    font-size: 25px;
+}
+
+#infoDisplay {
+    width:100%;
+    height: 10vh;
+}
+
+#mainDiv {
+    width:100vw;
+    height:75vh;
+    display: flex;
+    justify-content: center
+}
+
+#spamBar {
+    width: 100%;
+    height: 10vh;
+    position: relative;
+}
+
+#blackBox {
+    max-width: 100vw;
+    width:100vw;
+    height:100%;
+    position: absolute;
+}
+
+#greenBar {
+    width: 100vw;
+    height:100%;
+    position: absolute;
+}
+
+#riverImage {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('river.png');
+    background-size: 100% 80vh;
+    background-repeat: no-repeat
+}
+
+#jimmy {
+    position: fixed;
+    left: 40vw;
+    width: 800px
+}
