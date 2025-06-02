@@ -21,6 +21,7 @@ fishingStatus = 0
 timer = 0
 timer2 = 0
 timer3 = 0
+timer4 = 0
 totalFish = 0
 totalFish2 = 0
 totalBites = 0
@@ -121,7 +122,6 @@ setInterval(function() {
         grayBar.style.width = `${grayPosition}%`
 
         if (Math.abs(fishDistFromLeft-window.innerWidth*grayPosition/100) < 50) {
-            console.log(greenPosition)
             greenPosition += 0.15
         } else {
             if (greenPosition >= 0) {
@@ -141,6 +141,7 @@ setInterval(function() {
     if (fishingStatus === 3){
         timer3 += 0.01
     }
+    timer4 -= 0.01
 
     if (totalTime > 0.01) {
         totalTime -=0.01
@@ -222,10 +223,18 @@ setInterval(function() {
         setGif('gotAFish.gif')
         
             if (currentYear === 1980){
-                totalFish += 1
+                if (timer4 <= 0.1){
+                    totalFish += 1
+                }
+
+                timer4 = 3
             }
             if (currentYear === 2020) {
-                totalFish2 += 1
+                if (timer4 <= 0.1){
+                    totalFish2 += 1
+                }
+
+                timer4 = 3
             }
         if (timer <= 0.1) {
             fishingStatus = 0
@@ -283,6 +292,9 @@ setInterval(function() {
     totalFishText.textContent = `Total Fish for 1980: ${totalFish}`
     totalFish2Text.textContent = `Total Fish for 2020: ${totalFish2}`
     totalTimeDisplay.textContent = `Time Left: ${Math.floor(totalTime)}`
+
+    console.log(avgTimeList)
+    console.log(avgTimeList2)
 }, 10);
 
 
