@@ -9,7 +9,8 @@ totalFishText = document.getElementById("totalFish")
 totalFish2Text = document.getElementById("totalFish2")
 totalTimeDisplay = document.getElementById("time")
 currentYearDisplay = document.getElementById("currentYear")
-totalTime = 61
+riverImage = document.getElementById("riverImage")
+totalTime = 46
 fishBarDirection = 1
 fishBarSpeed = 3-2*Math.random()
 fishDistFromLeft = 0
@@ -26,6 +27,8 @@ totalFish = 0
 totalFish2 = 0
 totalBites = 0
 totalBites2 = 0
+avgTime = 0
+avgTime2 = 0
 avgTimeList = []
 avgTimeList2 = []
 jimmy.src = 'castRod.gif'
@@ -138,7 +141,7 @@ setInterval(function() {
 
     timer -= 0.01
     timer2 -= 0.01
-    if (fishingStatus === 3){
+    if (fishingStatus === 2){
         timer3 += 0.01
     }
     timer4 -= 0.01
@@ -173,7 +176,7 @@ setInterval(function() {
         }
         if (currentYear === 1980){
             if (Math.random() > 0.998 && timer <= 0.1) {
-            createMessage("!!!", 'yellow')
+            createMessage("!!!", 'black')
             timer2 = 3
             totalBites += 1
             avgTimeList.push(Math.floor(timer3))
@@ -182,8 +185,9 @@ setInterval(function() {
         }
         
         if (currentYear === 2020) {
-            if (Math.random() > 0.9998 && timer <= 0.1) {
-            createMessage("!!!", 'yellow')
+
+            if (Math.random() > 0.9995 && timer <= 0.1) {
+            createMessage("!!!", 'black')
             timer2 = 3
             totalBites2 += 1
             avgTimeList2.push(Math.floor(timer3))
@@ -282,10 +286,16 @@ setInterval(function() {
     if (hasSwitchedYear === 0 && currentYear === 2020) {
         if (timer <= 0.1){
             fishingStatus = 0
-            totalTime = 60
+            totalTime = 47
             hasSwitchedYear = 1
             reset()
         }
+    }
+
+    if (currentYear === 1980) {
+        riverImage.style.backgroundImage = "url(river.png)"
+    } else {
+        riverImage.style.backgroundImage = "url(dirtyRiver.png)"
     }
 
     currentYearDisplay.textContent = `Current Year: ${currentYear}`
@@ -293,8 +303,7 @@ setInterval(function() {
     totalFish2Text.textContent = `Total Fish for 2020: ${totalFish2}`
     totalTimeDisplay.textContent = `Time Left: ${Math.floor(totalTime)}`
 
-    console.log(avgTimeList)
-    console.log(avgTimeList2)
+    console.log(timer3)
 }, 10);
 
 
